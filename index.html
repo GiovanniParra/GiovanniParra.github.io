@@ -69,14 +69,16 @@
         }
         .project-slider::-webkit-scrollbar { display: none; }
         
-        /* Force cards to stay wide */
+        /* FIXED CARD SIZE */
         .project-card { 
-            min-width: 450px; 
-            flex: 0 0 auto; /* Don't shrink */
+            width: 350px; /* Fixed width to prevent "huge" cards */
+            flex-shrink: 0; /* Ensures they don't squash */
+            display: flex;
+            flex-direction: column;
         }
 
         .project-image-placeholder {
-            width: 100%; height: 200px;
+            width: 100%; height: 180px;
             background: rgba(59, 130, 246, 0.05);
             border-radius: 1rem;
             margin-bottom: 1.5rem;
@@ -120,43 +122,43 @@
             
             <div class="project-slider">
                 
-                <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
+                <div class="project-card glass-panel rounded-3xl p-8">
                     <div class="project-image-placeholder">
                         </div>
                     <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Dec 2025</span>
                     <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RESIDENCY RECORDS</h4>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        An automated auditing platform for verifying IRS tax residency status. Built to handle 300,000+ geospatial data points per user using high-performance Python engines and Shapely for point-in-polygon verification.
+                        An automated auditing platform for verifying IRS tax residency status. [cite_start]Built to handle 300,000+ geospatial data points per user using high-performance Python engines and Shapely for point-in-polygon verification[cite: 84, 85].
                     </p>
                     <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Source</a>
                 </div>
 
-                <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
+                <div class="project-card glass-panel rounded-3xl p-8">
                     <div class="project-image-placeholder"></div>
                     <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Oct 2025</span>
                     <h4 class="text-white text-xl font-bold mb-3 tracking-tight">FAIROFFER AI</h4>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        An AI-driven negotiation assistant leveraging Gemini 2.5 Flash for strategic e-commerce communication. Orchestrated through an asynchronous FastAPI backend to transform unstructured chat data into real-time tactics.
+                        An AI-driven negotiation assistant leveraging Gemini 2.5 Flash for strategic e-commerce communication. [cite_start]Orchestrated through an asynchronous FastAPI backend to transform unstructured chat data into real-time tactics[cite: 90, 91].
                     </p>
                     <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">Live Demo</a>
                 </div>
 
-                <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
+                <div class="project-card glass-panel rounded-3xl p-8">
                     <div class="project-image-placeholder"></div>
                     <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Sept 2025</span>
                     <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RFM CLASSIFICATION</h4>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        Advanced clustering model designed to segment 100,000+ customer records. Identifies high-value cohorts and behavioral patterns to optimize marketing ROI and resource allocation using Pandas and Matplotlib.
+                        Advanced clustering model designed to segment 100,000+ customer records. [cite_start]Identifies high-value cohorts and behavioral patterns to optimize marketing ROI and resource allocation using Pandas and Matplotlib[cite: 96, 97].
                     </p>
                     <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Repo</a>
                 </div>
 
-                <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
+                <div class="project-card glass-panel rounded-3xl p-8">
                     <div class="project-image-placeholder"></div>
                     <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Jan 2025</span>
                     <h4 class="text-white text-xl font-bold mb-3 tracking-tight">INNOVATIVE DESIGN</h4>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        Led end-to-end visual design and prototyping for the Sustainable Internet Lab. Synthesized complex technical research into high-fidelity marketing assets using Figma and Adobe Creative Suite.
+                        Led end-to-end visual design and prototyping for the Sustainable Internet Lab. [cite_start]Synthesized complex technical research into high-fidelity marketing assets using Figma and Adobe Creative Suite[cite: 101, 102].
                     </p>
                     <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Prototypes</a>
                 </div>
