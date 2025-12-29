@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giovanni Parra | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle at center, #001d3d 0%, #000814 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .ocean-gradient {
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,123,255,0.05) 100%);
+        }
+    </style>
+</head>
+<body class="font-sans selection:bg-blue-500/30">
+
+    <nav class="fixed w-full z-50 p-6 flex justify-between items-center glass">
+        <div class="text-xl font-bold tracking-tighter text-blue-400">G.PARRA</div>
+        <div class="hidden md:flex space-x-10 text-xs uppercase tracking-[0.2em] font-medium">
+            <a href="#work" class="hover:text-blue-400 transition">Projects</a>
+            <a href="#about" class="hover:text-blue-400 transition">About</a>
+            <a href="mailto:your@email.com" class="hover:text-blue-400 transition">Contact</a>
+        </div>
+    </nav>
+
+    <main class="ocean-gradient">
+        <section class="h-screen flex flex-col justify-center items-center px-6 text-center">
+            <h1 class="text-5xl md:text-8xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-blue-500">
+                GIOVANNI PARRA
+            </h1>
+            <p class="text-slate-400 text-lg md:text-xl max-w-xl font-light leading-relaxed">
+                Full-stack developer crafting immersive digital experiences in the depths of the web.
+            </p>
+            <div class="mt-12 flex space-x-4">
+                <a href="#work" class="px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full text-sm font-semibold transition">View Projects</a>
+            </div>
+        </section>
+
+        <section id="work" class="py-32 px-6 max-w-6xl mx-auto">
+            <h2 class="text-xs uppercase tracking-[0.5em] text-blue-500 font-bold mb-16 text-center">Selected Works</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="glass p-1 rounded-3xl group cursor-pointer overflow-hidden">
+                    <div class="bg-slate-900/50 h-64 rounded-[1.4rem] mb-6 overflow-hidden">
+                        <div class="w-full h-full bg-blue-900/20 group-hover:scale-105 transition duration-500"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Project Name</h3>
+                        <p class="text-slate-400 text-sm mb-6">Brief description of the tech and the problem solved.</p>
+                        <span class="text-[10px] border border-slate-700 px-3 py-1 rounded-full text-slate-500 uppercase">React / Tailwind</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
