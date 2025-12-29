@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giovanni Parra | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             background: radial-gradient(circle at center, #001d3d 0%, #000814 100%);
             margin: 0;
-            overflow: hidden;
+            overflow: hidden; /* Starts hidden for intro */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,7 +19,7 @@
         }
 
         /* ############################################################
-           # INTRO 3 SECOND ANIMATION STYLES
+           # INTRO ANIMATION STYLES
            ############################################################ */
         .intro-screen {
             backdrop-filter: blur(60px);
@@ -32,14 +32,17 @@
         }
         .name-container { display: flex; flex-direction: column; gap: 6rem; align-items: center; justify-content: center; }
         .name-style { letter-spacing: 1.5em; font-weight: 700; color: white; text-align: center; padding-left: 1.5em; line-height: 1; }
+        
         @keyframes expandLine { from { width: 0; opacity: 0; } to { width: 60%; opacity: 0.8; } }
         .animated-line { height: 1px; background: #3b82f6; animation: expandLine 2.5s ease-out forwards; margin-top: 4rem; }
+        
         .fade-out { opacity: 0; pointer-events: none; transform: scale(1.05); filter: blur(20px); }
 
         /* ############################################################
-           # MAIN WEBSITE STYLES
+           # MAIN CONTENT STYLES
            ############################################################ */
         #main-content { position: absolute; top: 0; left: 0; width: 100%; }
+        
         .glass-panel {
             background: rgba(255, 255, 255, 0.01);
             backdrop-filter: blur(12px);
@@ -48,24 +51,40 @@
         }
         .glass-panel:hover {
             border-color: rgba(59, 130, 246, 0.5);
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.03);
         }
+
+        /* SLIDER LOGIC */
         .project-slider {
             display: flex;
             overflow-x: auto;
             gap: 2rem;
             padding-bottom: 2rem;
-            scrollbar-width: none;
+            /* Hide scrollbar but keep functionality */
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+            /* Prevent wrapping */
+            flex-wrap: nowrap; 
         }
         .project-slider::-webkit-scrollbar { display: none; }
-        .project-card { min-width: 450px; }
+        
+        /* Force cards to stay wide */
+        .project-card { 
+            min-width: 450px; 
+            flex: 0 0 auto; /* Don't shrink */
+        }
+
         .project-image-placeholder {
             width: 100%; height: 200px;
             background: rgba(59, 130, 246, 0.05);
             border-radius: 1rem;
             margin-bottom: 1.5rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -79,14 +98,14 @@
         <div class="animated-line"></div>
     </div>
 
-    <main id="main-content" class="opacity-0 transition-opacity duration-1000 min-h-screen p-8 md:p-20 space-y-24">
+    <main id="main-content" class="opacity-0 transition-opacity duration-1000 min-h-screen p-8 md:p-20 space-y-20">
         
-        <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12 mt-10">
             <div class="space-y-3">
                 <h2 class="text-white text-5xl font-bold tracking-tighter uppercase">Giovanni Parra</h2>
                 <p class="text-blue-500 tracking-[0.5em] uppercase text-[10px] font-bold">Technical Marketer / Data Scientist</p>
             </div>
-            <div class="max-w-lg text-right">
+            <div class="max-w-xl text-right">
                 <p class="text-slate-300 font-light leading-relaxed text-base mb-6">
                     I am a student at UC Berkeley with a passion for building and publishing high-impact personal projects. I view every project as a hands-on learning experience, allowing me to gain specialized technical expertise while delivering open-source tools for others to use.
                 </p>
@@ -96,16 +115,18 @@
             </div>
         </div>
 
-        <section class="space-y-10">
-            <h3 class="text-white text-xs tracking-[0.5em] uppercase font-bold border-b border-white/5 pb-4">Project Log</h3>
+        <section class="space-y-8">
+            <h3 class="text-white text-xs tracking-[0.5em] uppercase font-bold border-b border-white/5 pb-4">Selected Projects</h3>
+            
             <div class="project-slider">
                 
                 <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
-                    <div class="project-image-placeholder"></div>
+                    <div class="project-image-placeholder">
+                        </div>
                     <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Dec 2025</span>
                     <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RESIDENCY RECORDS</h4>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        An automated auditing platform for verifying IRS tax residency status. Built to handle 300,000+ geospatial points using high-performance Python engines.
+                        An automated auditing platform for verifying IRS tax residency status. Built to handle 300,000+ geospatial data points per user using high-performance Python engines and Shapely for point-in-polygon verification.
                     </p>
                     <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Source</a>
                 </div>
@@ -115,7 +136,7 @@
                     <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Oct 2025</span>
                     <h4 class="text-white text-xl font-bold mb-3 tracking-tight">FAIROFFER AI</h4>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        An AI-driven negotiation assistant leveraging Gemini 2.5 Flash for strategic e-commerce communication. Orchestrated through an asynchronous FastAPI backend.
+                        An AI-driven negotiation assistant leveraging Gemini 2.5 Flash for strategic e-commerce communication. Orchestrated through an asynchronous FastAPI backend to transform unstructured chat data into real-time tactics.
                     </p>
                     <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">Live Demo</a>
                 </div>
@@ -123,11 +144,21 @@
                 <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
                     <div class="project-image-placeholder"></div>
                     <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Sept 2025</span>
-                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RFM ANALYTICS</h4>
+                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RFM CLASSIFICATION</h4>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        Advanced clustering model designed to segment 100,000+ customer records to optimize marketing ROI and retention strategy.
+                        Advanced clustering model designed to segment 100,000+ customer records. Identifies high-value cohorts and behavioral patterns to optimize marketing ROI and resource allocation using Pandas and Matplotlib.
                     </p>
                     <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Repo</a>
+                </div>
+
+                <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
+                    <div class="project-image-placeholder"></div>
+                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Jan 2025</span>
+                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">INNOVATIVE DESIGN</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
+                        Led end-to-end visual design and prototyping for the Sustainable Internet Lab. Synthesized complex technical research into high-fidelity marketing assets using Figma and Adobe Creative Suite.
+                    </p>
+                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Prototypes</a>
                 </div>
 
             </div>
@@ -143,12 +174,14 @@
         window.addEventListener('load', () => {
             const intro = document.getElementById('intro');
             const main = document.getElementById('main-content');
+            
+            // Wait 4 seconds for line animation
             setTimeout(() => {
                 intro.classList.add('fade-out');
                 setTimeout(() => {
                     main.classList.remove('opacity-0');
-                    document.body.style.overflowY = 'auto';
-                }, 1000);
+                    document.body.style.overflowY = 'auto'; // Enable scroll after intro
+                }, 800);
             }, 4000);
         });
     </script>
