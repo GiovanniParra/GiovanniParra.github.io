@@ -4,121 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Giovanni Parra</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            background: radial-gradient(circle at center, #001d3d 0%, #000814 100%);
-            margin: 0;
-            min-height: 100vh;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: white;
-            display: flex;
-            justify-content: center;
-        }
-
-        .content-wrapper {
-            max-width: 1200px;
-            width: 100%;
-        }
-
-        .profile-container {
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 2rem;
-            overflow: hidden;
-            height: 600px;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Placeholder styling */
-        .placeholder-text {
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.4);
-        }
-        
-        .nav-link {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: #60a5fa; /* Blue-400 */
-            font-weight: 700;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover {
-            color: white;
-        }
-
-        .section-title {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.4em;
-            color: #3b82f6; /* Blue-500 */
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
+        body { background: #000814; color: white; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; }
+        .profile-container { border: 1px solid rgba(255,255,255,0.1); border-radius: 2rem; overflow: hidden; height: 600px; background: #001d3d; }
     </style>
 </head>
 <body class="p-8 md:p-24">
-    
-    <div class="content-wrapper">
-        <nav class="mb-16">
-            <a href="index.html" class="nav-link">← Back to Projects</a>
-        </nav>
+    <nav class="mb-20">
+        <a href="index.html" class="text-blue-400 text-xs uppercase tracking-widest font-bold">← Back to Projects</a>
+    </nav>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
-            
-            <div class="profile-container">
-                <span class="placeholder-text">[ Upload Photo Here ]</span>
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+        <div class="profile-container flex items-center justify-center text-slate-700 uppercase tracking-widest text-xs">
+            [Photo of Giovanni]
+        </div>
 
-            <div class="space-y-16">
-                
-                <section>
-                    <h1 class="text-5xl md:text-6xl font-bold tracking-tighter mb-8 leading-tight">The Story</h1>
-                    <p class="text-slate-300 leading-loose font-light text-lg mb-6">
-                        I am a student at <strong>UC Berkeley</strong> exploring the intersection of Data Science and Technical Marketing. My background is rooted in the belief that technical architecture should be as beautiful as it is functional.
-                    </p>
-                    <p class="text-slate-300 leading-loose font-light text-lg">
-                        Beyond the classroom, I am dedicated to bridging indigenous culture with modern technology, a passion I explore as a Project Lead for <strong>Centro Cultural Techantit</strong>. I believe the best way to learn is to build in public—creating open-source solutions that solve real problems while pushing the boundaries of my own technical knowledge.
-                    </p>
-                </section>
+        <div class="space-y-12">
+            <section>
+                <h1 class="text-6xl font-bold tracking-tighter mb-8">The Story</h1>
+                <p class="text-slate-300 leading-loose font-light text-lg">
+                    I am a student at UC Berkeley exploring the intersection of Data Science and Technical Marketing. My background is rooted in the belief that technical architecture should be as beautiful as it is functional. 
+                </p>
+                <p class="text-slate-300 leading-loose font-light text-lg mt-6">
+                    I am driven by personal projects. For me, building and publishing these tools isn't just about the final product; it's about the technical experience gained along the way. I focus on creating open-source solutions—from LLM orchestration to geospatial auditing—that help others while pushing the boundaries of my own knowledge.
+                </p>
+            </section>
 
-                <section class="grid grid-cols-1 md:grid-cols-2 gap-10 border-t border-white/5 pt-10">
-                    <div>
-                        <h2 class="section-title">Core Focus</h2>
-                        <ul class="text-slate-400 text-sm space-y-3 font-light leading-relaxed">
-                            <li>• Automating high-precision geospatial auditing</li>
-                            <li>• Deploying scalable AI negotiation frameworks</li>
-                            <li>• Synthesizing digital branding with analytics</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 class="section-title">Education</h2>
-                        <p class="text-slate-300 text-lg font-medium">University of California, Berkeley</p>
-                        <p class="text-slate-500 text-sm mt-1">Interdisciplinary Studies</p>
-                        <p class="text-slate-500 text-xs mt-1 italic">Concentration in Business & Industrial Analytics</p>
-                    </div>
-                </section>
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div>
+                    <h2 class="text-blue-500 text-[10px] uppercase tracking-[0.5em] font-bold mb-4">Core Goals</h2>
+                    <ul class="text-slate-400 text-sm space-y-3">
+                        <li>• Automate high-precision geospatial auditing</li>
+                        <li>• Deploy scalable AI negotiation frameworks</li>
+                        <li>• Bridge digital branding with data analytics</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-blue-500 text-[10px] uppercase tracking-[0.5em] font-bold mb-4">Education</h2>
+                    <p class="text-slate-400 text-sm">University of California, Berkeley</p>
+                    <p class="text-slate-500 text-[10px] mt-1 italic">Business & Industrial Analytics</p>
+                </div>
+            </section>
 
-                <section class="pt-2">
-                    <h2 class="section-title">Connect</h2>
-                    <div class="flex gap-10">
-                        <a href="mailto:gioparra@berkeley.edu" class="nav-link text-white">Email</a>
-                        <a href="https://linkedin.com/in/gioparra" target="_blank" class="nav-link text-white">LinkedIn</a>
-                        <a href="https://github.com/giovanniparra" target="_blank" class="nav-link text-white">GitHub</a>
-                    </div>
-                </section>
-            </div>
-
+            <section class="pt-10 border-t border-white/5">
+                <div class="flex gap-12">
+                    <a href="mailto:gioparra@berkeley.edu" class="text-white hover:text-blue-400 transition uppercase tracking-widest text-xs font-bold">Email</a>
+                    <a href="https://linkedin.com/in/gioparra" target="_blank" class="text-white hover:text-blue-400 transition uppercase tracking-widest text-xs font-bold">LinkedIn</a>
+                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white hover:text-blue-400 transition uppercase tracking-widest text-xs font-bold">GitHub</a>
+                </div>
+            </section>
         </div>
     </div>
-
 </body>
 </html>
