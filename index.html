@@ -5,55 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giovanni Parra</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <style>
         /* ############################################################
            # INTRO 3 SECOND ANIMATION STYLES
            ############################################################ */
-        @keyframes drift {
-            from { background-position: 0% 50%; }
-            to { background-position: 100% 50%; }
-        }
         body {
             background: radial-gradient(circle at center, #001d3d 0%, #000814 100%);
-            background-size: 200% 200%;
-            animation: drift 15s ease infinite alternate;
             margin: 0;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         .intro-screen {
             backdrop-filter: blur(60px);
             transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
         .name-style {
             letter-spacing: 1.5em;
-            font-weight: 700; /* Bolder */
+            font-weight: 700;
             color: white;
-            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+            text-align: center;
+            padding-left: 1.5em; /* Offsets the last letter's spacing to keep it perfectly centered */
         }
-
-        /* Expanding Line Animation */
         @keyframes expandLine {
             from { width: 0; opacity: 0; }
-            to { width: 85%; opacity: 0.6; }
+            to { width: 60%; opacity: 0.8; }
         }
         .animated-line {
-            height: 2px;
+            height: 1px;
             background: #3b82f6;
             animation: expandLine 2.5s ease-out forwards;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
-
         .fade-out { 
             opacity: 0; 
             pointer-events: none; 
-            transform: scale(1.1); 
+            transform: scale(1.05); 
             filter: blur(20px); 
         }
 
         /* ############################################################
            # MAIN WEBSITE STYLES
            ############################################################ */
+        #main-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
         .glass-panel {
             background: rgba(255, 255, 255, 0.01);
             backdrop-filter: blur(8px);
@@ -63,48 +69,28 @@
 </head>
 <body>
 
-    <div id="intro" class="intro-screen fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/30">
-        <h1 class="name-style text-3xl md:text-5xl ml-[1.5em]">GIOVANNI PARRA</h1>
+    <div id="intro" class="intro-screen fixed inset-0 z-50 bg-black/30">
+        <h1 class="name-style text-3xl md:text-5xl uppercase">GIOVANNI PARRA</h1>
         <div class="animated-line"></div>
     </div>
 
-
     <main id="main-content" class="opacity-0 transition-opacity duration-1000 min-h-screen grid grid-cols-1 md:grid-cols-2 p-8 md:p-20 gap-16 items-center">
-        
         <div class="space-y-10">
             <header>
                 <h2 class="text-[10px] uppercase tracking-[0.6em] text-blue-400 font-semibold mb-2">Portfolio</h2>
                 <p class="text-white text-3xl font-extralight tracking-tighter">Selected Projects</p>
             </header>
-            
-            <div class="glass-panel aspect-video rounded-3xl flex flex-col items-center justify-center relative group cursor-pointer overflow-hidden border-white/10 hover:border-blue-500/40 transition-all duration-500">
-                <div class="text-center z-10">
-                    <h3 class="text-white text-lg tracking-[0.3em] font-light mb-1">PROJECT_01</h3>
-                    <p class="text-slate-500 text-[10px] uppercase tracking-widest">Data Analysis • Berkeley</p>
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </div>
-
-            <div class="flex gap-4 items-center">
-                <div class="w-8 h-[1px] bg-blue-500"></div>
-                <span class="text-[10px] text-slate-500 tracking-widest uppercase">01 / 04</span>
+            <div class="glass-panel aspect-video rounded-3xl flex items-center justify-center group cursor-pointer border-white/10 hover:border-blue-500/40 transition-all duration-500">
+                <h3 class="text-white text-lg tracking-[0.3em] font-light">PROJECT_01</h3>
             </div>
         </div>
 
         <div class="space-y-12 md:pl-10">
-            <div class="flex flex-col md:row gap-10 items-start">
-                <div class="w-32 h-44 bg-white/5 border border-white/10 rounded-2xl shrink-0 backdrop-blur-sm relative overflow-hidden">
-                    <div class="absolute inset-0 bg-blue-900/10"></div>
-                </div>
-                
-                <div class="space-y-6 max-w-sm">
-                    <h2 class="text-[10px] uppercase tracking-[0.6em] text-blue-400 font-semibold">Background</h2>
-                    <p class="text-slate-300 font-light leading-relaxed text-sm md:text-base">
-                        I am a third-year Data Science student at UC Berkeley. My work focuses on bridging the gap between technical architecture and aesthetic, immersive design.
-                    </p>
-                    <a href="#" class="inline-block text-[10px] tracking-[0.3em] text-white border-b border-blue-500/50 pb-1 hover:text-blue-400 transition-colors uppercase">View Resume</a>
-                </div>
-            </div>
+            <h2 class="text-[10px] uppercase tracking-[0.6em] text-blue-400 font-semibold">Background</h2>
+            <p class="text-slate-300 font-light leading-relaxed text-sm md:text-base">
+                Third-year Data Science student at UC Berkeley. Bridging the gap between technical architecture and aesthetic design.
+            </p>
+            <a href="#" class="inline-block text-[10px] tracking-[0.3em] text-white border-b border-blue-500/50 pb-1 hover:text-blue-400 transition-colors uppercase">View Resume</a>
         </div>
     </main>
 
@@ -118,12 +104,11 @@
             
             setTimeout(() => {
                 intro.classList.add('fade-out');
-                
                 setTimeout(() => {
                     main.classList.remove('opacity-0');
                     document.body.style.overflowY = 'auto';
                 }, 1000);
-            }, 4500); // Wait for the line animation to fully finish
+            }, 4000);
         });
     </script>
 </body>
