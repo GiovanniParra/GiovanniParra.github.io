@@ -6,65 +6,80 @@
     <title>Giovanni Parra</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @keyframes smokeFade {
-            0% { filter: blur(20px); opacity: 0; transform: scale(1.1); }
-            50% { filter: blur(10px); opacity: 1; }
-            100% { filter: blur(0px); opacity: 1; transform: scale(1); }
-        }
-
         @keyframes drift {
             from { background-position: 0% 50%; }
             to { background-position: 100% 50%; }
         }
-
         body {
             background: radial-gradient(circle at center, #001d3d 0%, #000814 100%);
             background-size: 200% 200%;
             animation: drift 15s ease infinite alternate;
-            overflow-x: hidden;
         }
-
-        .intro-overlay {
-            animation: smokeFade 3s forwards;
+        .intro-blur {
+            backdrop-filter: blur(40px);
+            transition: all 1.5s ease-in-out;
         }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .clear-view {
+            backdrop-filter: blur(0px);
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .hero-name {
+            letter-spacing: 0.8em;
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
         }
     </style>
 </head>
-<body class="text-white">
+<body class="text-white overflow-hidden font-sans">
 
-    <div class="intro-overlay min-h-screen flex flex-col">
-        <nav class="p-8 flex justify-between items-center">
-            <h1 class="text-xl font-bold tracking-widest uppercase">G. Parra</h1>
-            <div class="space-x-6 text-sm text-blue-300">
-                <a href="#projects" class="hover:text-white transition">Projects</a>
-                <a href="#contact" class="hover:text-white transition">Contact</a>
-            </div>
-        </nav>
-
-        <section class="flex-grow flex flex-col justify-center items-center px-6">
-            <h2 class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-4 text-white drop-shadow-2xl">
-                GIOVANNI PARRA
-            </h2>
-            <p class="text-blue-200/60 tracking-[0.3em] uppercase text-xs md:text-sm">
-                Full-Stack Developer • Digital Architect
-            </p>
-        </section>
-
-        <section id="projects" class="p-10 max-w-6xl mx-auto w-full">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass p-8 rounded-3xl">
-                    <div class="h-48 bg-blue-900/20 rounded-xl mb-4"></div>
-                    <h3 class="text-2xl font-bold">Featured Project</h3>
-                    <p class="text-slate-400">Description of your best work goes here.</p>
-                </div>
-            </div>
-        </section>
+    <div id="overlay" class="intro-blur fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+        <h1 id="main-name" class="hero-name text-3xl md:text-5xl font-extralight transition-all duration-1000">GIOVANNI PARRA</h1>
     </div>
 
+    <main id="content" class="opacity-0 transition-opacity duration-1000 min-h-screen grid grid-cols-1 md:grid-cols-2 gap-12 p-10 md:p-24 items-center">
+        <div class="space-y-8">
+            <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold">Selected Projects</h2>
+            <div class="relative h-80 w-full bg-white/5 border border-white/10 rounded-3xl flex flex-col items-center justify-center group overflow-hidden">
+                <div class="p-8 text-center">
+                    <h3 class="text-2xl font-light mb-2">Project Alpha</h3>
+                    <p class="text-slate-400 text-sm max-w-xs">Data Science & Web Architecture at UC Berkeley.</p>
+                </div>
+                <div class="absolute bottom-6 flex gap-2">
+                    <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-8">
+            <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold">Background</h2>
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+                <div class="w-32 h-40 bg-white/10 border border-white/10 rounded-2xl shrink-0 grayscale hover:grayscale-0 transition duration-500"></div>
+                <div class="space-y-4">
+                    <p class="text-slate-300 leading-relaxed font-light">
+                        I am a third-year Data Science student at UC Berkeley focused on the intersection of clean code and immersive design. 
+                    </p>
+                    <p class="text-slate-500 text-sm italic">Currently exploring the depths of full-stack architecture.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        setTimeout(() => {
+            const overlay = document.getElementById('overlay');
+            const content = document.getElementById('content');
+            const name = document.getElementById('main-name');
+            
+            overlay.classList.add('clear-view');
+            name.style.opacity = '0';
+            name.style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                content.classList.remove('opacity-0');
+                document.body.style.overflow = 'auto';
+            }, 1000);
+        }, 3000);
+    </script>
 </body>
 </html>
