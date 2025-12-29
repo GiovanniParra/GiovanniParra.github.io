@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giovanni Parra | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* ############################################################
-           # INTRO 3 SECOND ANIMATION STYLES
-           ############################################################ */
         body {
             background: radial-gradient(circle at center, #001d3d 0%, #000814 100%);
             margin: 0;
@@ -17,9 +15,12 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
+        /* ############################################################
+           # INTRO 3 SECOND ANIMATION STYLES
+           ############################################################ */
         .intro-screen {
             backdrop-filter: blur(60px);
             transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
@@ -81,35 +82,41 @@
             background: rgba(255, 255, 255, 0.01);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: all 0.4s ease;
         }
 
         .glass-panel:hover {
             border-color: rgba(59, 130, 246, 0.5);
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.03);
         }
 
-        /* Custom Scrollbar for Project Slider */
         .project-slider {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             gap: 2rem;
             padding-bottom: 2rem;
+            scrollbar-width: none;
         }
 
         .project-slider::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .project-slider::-webkit-scrollbar-thumb {
-            background: rgba(59, 130, 246, 0.3);
-            border-radius: 10px;
+            display: none;
         }
 
         .project-card {
-            min-width: 400px;
+            min-width: 450px;
             scroll-snap-align: start;
+        }
+
+        .project-image-placeholder {
+            width: 100%;
+            height: 180px;
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
@@ -127,94 +134,73 @@
     <main id="main-content" class="opacity-0 transition-opacity duration-1000 min-h-screen p-8 md:p-20 space-y-20">
         
         <div class="flex flex-col md:flex-row justify-between items-start gap-10">
-            <div class="space-y-4">
+            <div class="space-y-2">
                 <h2 class="text-white text-5xl font-bold tracking-tighter uppercase">Giovanni Parra</h2>
-                <p class="text-blue-400 tracking-[0.4em] uppercase text-xs font-bold">Technical Marketer / Data Scientist</p>
+                <p class="text-blue-500 tracking-[0.5em] uppercase text-[10px] font-bold">Technical Marketer / Data Scientist</p>
             </div>
-            <div class="max-w-md text-right md:pt-4">
+            <div class="max-w-md text-right">
                 <p class="text-slate-400 font-light leading-relaxed text-sm">
-                    Third-year UC Berkeley student[cite: 74]. Specializing in the intersection of technical marketing, business analytics, and AI orchestration[cite: 75, 76].
+                    Third-year UC Berkeley student. Specializing in high-performance geospatial engines, LLM orchestration, and digital branding.
                 </p>
             </div>
         </div>
 
         <section class="space-y-10">
             <div class="flex justify-between items-end border-b border-white/5 pb-6">
-                <h3 class="text-white text-xl tracking-[0.3em] uppercase">Project Log</h3>
-                <span class="text-slate-500 text-[10px] uppercase tracking-widest">Scroll Horizontal →</span>
+                <h3 class="text-white text-xs tracking-[0.5em] uppercase font-bold">Project Log</h3>
+                <span class="text-slate-500 text-[9px] uppercase tracking-widest">Shift + Scroll to navigate →</span>
             </div>
 
-            <div class="project-slider px-2">
+            <div class="project-slider">
                 
-                <div class="project-card glass-panel rounded-3xl p-10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="text-blue-500 font-mono text-xs uppercase">Dec 2025</span>
-                            <span class="bg-blue-900/20 text-blue-400 text-[9px] px-2 py-1 rounded">Python / Geospatial</span>
+                <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
+                    <div class="project-image-placeholder">
                         </div>
-                        <h4 class="text-white text-2xl font-bold mb-4 tracking-tight">RESIDENCY RECORDS</h4>
-                        <p class="text-slate-400 text-xs leading-loose font-light mb-6">
-                            Developed an automated auditing platform capable of analyzing 300,000+ geospatial data points per user to verify IRS tax residency status[cite: 81, 84]. Engineered a high-performance spatial engine using **Shapely** to execute complex point-in-polygon verification against US border shapefiles[cite: 85].
-                        </p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Dec 2025</span>
                     </div>
+                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RESIDENCY RECORDS</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
+                        Developed a robust automated auditing platform analyzing 300,000+ geospatial data points per user to verify IRS tax residency status. Engineered a geospatial engine using Shapely to execute point-in-polygon verification protocols.
+                    </p>
                     <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Source</a>
                 </div>
 
-                <div class="project-card glass-panel rounded-3xl p-10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="text-blue-500 font-mono text-xs uppercase">Oct 2025</span>
-                            <span class="bg-blue-900/20 text-blue-400 text-[9px] px-2 py-1 rounded">FastAPI / LLM</span>
-                        </div>
-                        <h4 class="text-white text-2xl font-bold mb-4 tracking-tight">FAIROFFER AI</h4>
-                        <p class="text-slate-400 text-xs leading-loose font-light mb-6">
-                            Architected an AI negotiation engine leveraging **Gemini 2.5 Flash** to generate context-aware strategic responses[cite: 87, 90]. Developed a scalable FastAPI backend to orchestrate LLM inference pipelines, transforming unstructured data into real-time tactics[cite: 91].
-                        </p>
+                <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
+                    <div class="project-image-placeholder"></div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Oct 2025</span>
                     </div>
+                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">FAIROFFER AI</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
+                        Architected an AI negotiation engine leveraging the Gemini 2.5 Flash model to generate context-aware strategic responses for e-commerce. Developed a FastAPI backend to orchestrate LLM inference pipelines.
+                    </p>
                     <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">Live Demo</a>
                 </div>
 
-                <div class="project-card glass-panel rounded-3xl p-10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="text-blue-500 font-mono text-xs uppercase">Sept 2025</span>
-                            <span class="bg-blue-900/20 text-blue-400 text-[9px] px-2 py-1 rounded">Pandas / Marketing</span>
-                        </div>
-                        <h4 class="text-white text-2xl font-bold mb-4 tracking-tight">RFM CLASSIFICATION</h4>
-                        <p class="text-slate-400 text-xs leading-loose font-light mb-6">
-                            Engineered an advanced RFM clustering model to segment 100,000+ unique customer records, identifying high-value cohorts[cite: 93, 96]. Provided cross-functional stakeholders with profitability analysis to reduce churn and maximize customer lifetime value[cite: 97].
-                        </p>
+                <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
+                    <div class="project-image-placeholder"></div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Sept 2025</span>
                     </div>
-                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">Analytics Repo</a>
-                </div>
-
-                <div class="project-card glass-panel rounded-3xl p-10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <span class="text-blue-500 font-mono text-xs uppercase">Jan 2025</span>
-                            <span class="bg-blue-900/20 text-blue-400 text-[9px] px-2 py-1 rounded">Figma / UX</span>
-                        </div>
-                        <h4 class="text-white text-2xl font-bold mb-4 tracking-tight">INNOVATIVE DESIGN</h4>
-                        <p class="text-slate-400 text-xs leading-loose font-light mb-6">
-                            Led end-to-end visual design and prototyping for the **Sustainable Internet Lab**[cite: 98, 101]. Synthesized complex technical research into high-fidelity assets, significantly increasing digital engagement and brand consistency[cite: 102].
-                        </p>
-                    </div>
-                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">Prototypes</a>
+                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RFM CLASSIFICATION</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
+                        Engineered an advanced RFM clustering model to segment 100,000+ customer records. Identified high-value cohorts and behavioral patterns to optimize targeted marketing spend and resource allocation.
+                    </p>
+                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">Analysis</a>
                 </div>
 
             </div>
         </section>
 
         <footer class="flex flex-col md:flex-row justify-between items-center pt-20 border-t border-white/5 gap-6 pb-10">
-            <p class="text-slate-500 text-[10px] uppercase tracking-widest italic">UC Berkeley • Data Science 2027 [cite: 74, 78]</p>
+            <p class="text-slate-600 text-[10px] uppercase tracking-widest">UC Berkeley • Data Science</p>
             <div class="flex gap-10">
-                <a href="mailto:gioparra@berkeley.edu" class="text-white text-xs uppercase tracking-widest hover:text-blue-400 transition">Email [cite: 72]</a>
-                <a href="https://linkedin.com/in/gioparra" target="_blank" class="text-white text-xs uppercase tracking-widest hover:text-blue-400 transition">LinkedIn [cite: 77]</a>
-                <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-xs uppercase tracking-widest hover:text-blue-400 transition">GitHub [cite: 77]</a>
+                <a href="mailto:gioparra@berkeley.edu" class="text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">Email</a>
+                <a href="https://linkedin.com/in/gioparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">LinkedIn</a>
             </div>
         </footer>
     </main>
-
 
     <script>
         // ############################################################
@@ -223,7 +209,6 @@
         window.addEventListener('load', () => {
             const intro = document.getElementById('intro');
             const main = document.getElementById('main-content');
-            
             setTimeout(() => {
                 intro.classList.add('fade-out');
                 setTimeout(() => {
