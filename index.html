@@ -19,7 +19,7 @@
         }
 
         /* ############################################################
-           # INTRO 3 SECOND ANIMATION STYLES
+           # INTRO ANIMATION STYLES
            ############################################################ */
         .intro-screen {
             backdrop-filter: blur(60px);
@@ -30,92 +30,42 @@
             justify-content: center;
             width: 100%;
         }
-
-        .name-container {
-            display: flex;
-            flex-direction: column;
-            gap: 6rem; 
-            align-items: center;
-            justify-content: center;
-        }
-
-        .name-style {
-            letter-spacing: 1.5em;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-            padding-left: 1.5em; 
-            display: block;
-            line-height: 1;
-        }
-
-        @keyframes expandLine {
-            from { width: 0; opacity: 0; }
-            to { width: 60%; opacity: 0.8; }
-        }
-
-        .animated-line {
-            height: 1px;
-            background: #3b82f6;
-            animation: expandLine 2.5s ease-out forwards;
-            margin-top: 4rem;
-        }
-
-        .fade-out { 
-            opacity: 0; 
-            pointer-events: none; 
-            transform: scale(1.05); 
-            filter: blur(20px); 
-        }
+        .name-container { display: flex; flex-direction: column; gap: 6rem; align-items: center; justify-content: center; }
+        .name-style { letter-spacing: 1.5em; font-weight: 700; color: white; text-align: center; padding-left: 1.5em; line-height: 1; }
+        @keyframes expandLine { from { width: 0; opacity: 0; } to { width: 60%; opacity: 0.8; } }
+        .animated-line { height: 1px; background: #3b82f6; animation: expandLine 2.5s ease-out forwards; margin-top: 4rem; }
+        .fade-out { opacity: 0; pointer-events: none; transform: scale(1.05); filter: blur(20px); }
 
         /* ############################################################
-           # MAIN WEBSITE STYLES
+           # MAIN CONTENT STYLES
            ############################################################ */
-        #main-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-        }
-
+        #main-content { position: absolute; top: 0; left: 0; width: 100%; }
         .glass-panel {
             background: rgba(255, 255, 255, 0.01);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.4s ease;
         }
-
         .glass-panel:hover {
             border-color: rgba(59, 130, 246, 0.5);
             transform: translateY(-8px);
             background: rgba(255, 255, 255, 0.03);
         }
-
         .project-slider {
             display: flex;
             overflow-x: auto;
-            scroll-snap-type: x mandatory;
             gap: 2rem;
             padding-bottom: 2rem;
             scrollbar-width: none;
+            -ms-overflow-style: none;
         }
-
-        .project-slider::-webkit-scrollbar {
-            display: none;
-        }
-
-        .project-card {
-            min-width: 450px;
-            scroll-snap-align: start;
-        }
-
+        .project-slider::-webkit-scrollbar { display: none; }
+        .project-card { min-width: 450px; }
         .project-image-placeholder {
-            width: 100%;
-            height: 180px;
+            width: 100%; height: 200px;
             background: rgba(59, 130, 246, 0.05);
             border-radius: 1rem;
             margin-bottom: 1.5rem;
-            overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
@@ -130,82 +80,67 @@
         <div class="animated-line"></div>
     </div>
 
-
-    <main id="main-content" class="opacity-0 transition-opacity duration-1000 min-h-screen p-8 md:p-20 space-y-20">
+    <main id="main-content" class="opacity-0 transition-opacity duration-1000 min-h-screen p-8 md:p-20 space-y-24">
         
-        <div class="flex flex-col md:flex-row justify-between items-start gap-10">
-            <div class="space-y-2">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="space-y-3">
                 <h2 class="text-white text-5xl font-bold tracking-tighter uppercase">Giovanni Parra</h2>
                 <p class="text-blue-500 tracking-[0.5em] uppercase text-[10px] font-bold">Technical Marketer / Data Scientist</p>
             </div>
-            <div class="max-w-md text-right">
-                <p class="text-slate-400 font-light leading-relaxed text-sm">
-                    Third-year UC Berkeley student. Specializing in high-performance geospatial engines, LLM orchestration, and digital branding.
+            <div class="max-w-lg text-right">
+                <p class="text-slate-300 font-light leading-relaxed text-base mb-4">
+                    I am a student at **UC Berkeley** with a passion for building and publishing high-impact personal projects. [cite: 74, 75] I view every project as a hands-on learning experience, allowing me to gain specialized technical expertise while delivering open-source tools for others to use. 
                 </p>
+                <a href="about.html" class="text-blue-400 text-xs tracking-widest uppercase font-bold border-b border-blue-400/30 pb-1 hover:text-white transition-colors">
+                    More about me →
+                </a>
             </div>
         </div>
 
         <section class="space-y-10">
-            <div class="flex justify-between items-end border-b border-white/5 pb-6">
-                <h3 class="text-white text-xs tracking-[0.5em] uppercase font-bold">Project Log</h3>
-                <span class="text-slate-500 text-[9px] uppercase tracking-widest">Shift + Scroll to navigate →</span>
-            </div>
-
+            <h3 class="text-white text-xs tracking-[0.5em] uppercase font-bold border-b border-white/5 pb-4">Project Log</h3>
             <div class="project-slider">
                 
                 <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
-                    <div class="project-image-placeholder">
-                        </div>
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Dec 2025</span>
-                    </div>
+                    <div class="project-image-placeholder"></div>
+                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Dec 2025</span>
                     <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RESIDENCY RECORDS</h4>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        Developed a robust automated auditing platform analyzing 300,000+ geospatial data points per user to verify IRS tax residency status. Engineered a geospatial engine using Shapely to execute point-in-polygon verification protocols.
+                        An automated auditing platform for verifying IRS tax residency status. Built to handle 300,000+ geospatial points using high-performance Python engines. [cite: 84, 85]
                     </p>
                     <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Source</a>
                 </div>
 
                 <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
                     <div class="project-image-placeholder"></div>
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Oct 2025</span>
-                    </div>
+                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Oct 2025</span>
                     <h4 class="text-white text-xl font-bold mb-3 tracking-tight">FAIROFFER AI</h4>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        Architected an AI negotiation engine leveraging the Gemini 2.5 Flash model to generate context-aware strategic responses for e-commerce. Developed a FastAPI backend to orchestrate LLM inference pipelines.
+                        An AI-driven negotiation assistant leveraging Gemini 2.5 Flash for strategic e-commerce communication. Orchestrated through an asynchronous FastAPI backend. [cite: 90, 91]
                     </p>
                     <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">Live Demo</a>
                 </div>
 
                 <div class="project-card glass-panel rounded-3xl p-8 flex flex-col">
                     <div class="project-image-placeholder"></div>
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest">Sept 2025</span>
-                    </div>
-                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RFM CLASSIFICATION</h4>
+                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Sept 2025</span>
+                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RFM ANALYTICS</h4>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        Engineered an advanced RFM clustering model to segment 100,000+ customer records. Identified high-value cohorts and behavioral patterns to optimize targeted marketing spend and resource allocation.
+                        Advanced clustering model designed to segment 100,000+ customer records to optimize marketing ROI and retention strategy. [cite: 96, 97]
                     </p>
-                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">Analysis</a>
+                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Repo</a>
                 </div>
 
             </div>
         </section>
 
-        <footer class="flex flex-col md:flex-row justify-between items-center pt-20 border-t border-white/5 gap-6 pb-10">
-            <p class="text-slate-600 text-[10px] uppercase tracking-widest">UC Berkeley • Data Science</p>
-            <div class="flex gap-10">
-                <a href="mailto:gioparra@berkeley.edu" class="text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">Email</a>
-                <a href="https://linkedin.com/in/gioparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">LinkedIn</a>
-            </div>
+        <footer class="flex justify-between items-center pt-12 border-t border-white/5 text-slate-600 text-[9px] uppercase tracking-[0.4em] pb-10">
+            <span>Berkeley, CA</span>
+            <span>© 2025 Giovanni Parra</span>
         </footer>
     </main>
 
     <script>
-        // ############################################################
-        // # INTRO ANIMATION LOGIC
-        // ############################################################
         window.addEventListener('load', () => {
             const intro = document.getElementById('intro');
             const main = document.getElementById('main-content');
