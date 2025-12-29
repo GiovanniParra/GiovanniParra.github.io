@@ -6,80 +6,95 @@
     <title>Giovanni Parra</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @keyframes drift {
-            from { background-position: 0% 50%; }
-            to { background-position: 100% 50%; }
-        }
         body {
             background: radial-gradient(circle at center, #001d3d 0%, #000814 100%);
-            background-size: 200% 200%;
-            animation: drift 15s ease infinite alternate;
+            background-attachment: fixed;
+            margin: 0;
+            overflow: hidden;
         }
-        .intro-blur {
-            backdrop-filter: blur(40px);
-            transition: all 1.5s ease-in-out;
+        .intro-screen {
+            backdrop-filter: blur(60px);
+            transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
         }
-        .clear-view {
-            backdrop-filter: blur(0px);
-            background: rgba(0, 0, 0, 0.4);
+        .name-style {
+            letter-spacing: 1.5em;
+            font-weight: 200;
+            color: white;
+            text-shadow: 0 0 25px rgba(255,255,255,0.4);
         }
-        .hero-name {
-            letter-spacing: 0.8em;
-            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+        .fade-out { opacity: 0; pointer-events: none; transform: scale(1.1); filter: blur(20px); }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
-<body class="text-white overflow-hidden font-sans">
+<body>
 
-    <div id="overlay" class="intro-blur fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
-        <h1 id="main-name" class="hero-name text-3xl md:text-5xl font-extralight transition-all duration-1000">GIOVANNI PARRA</h1>
+    <div id="intro" class="intro-screen fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/30">
+        <h1 class="name-style text-xl md:text-3xl ml-[1.5em]">GIOVANNI PARRA</h1>
+        <div class="h-[1px] w-12 bg-blue-500/50 mt-8"></div>
     </div>
 
-    <main id="content" class="opacity-0 transition-opacity duration-1000 min-h-screen grid grid-cols-1 md:grid-cols-2 gap-12 p-10 md:p-24 items-center">
-        <div class="space-y-8">
-            <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold">Selected Projects</h2>
-            <div class="relative h-80 w-full bg-white/5 border border-white/10 rounded-3xl flex flex-col items-center justify-center group overflow-hidden">
-                <div class="p-8 text-center">
-                    <h3 class="text-2xl font-light mb-2">Project Alpha</h3>
-                    <p class="text-slate-400 text-sm max-w-xs">Data Science & Web Architecture at UC Berkeley.</p>
+    <main id="main-content" class="opacity-0 transition-opacity duration-1000 min-h-screen grid grid-cols-1 md:grid-cols-2 p-8 md:p-20 gap-16 items-center">
+        
+        <div class="space-y-10">
+            <header>
+                <h2 class="text-[10px] uppercase tracking-[0.6em] text-blue-400 font-semibold mb-2">Portfolio</h2>
+                <p class="text-white text-3xl font-extralight tracking-tighter">Selected Projects</p>
+            </header>
+            
+            <div class="glass-panel aspect-video rounded-3xl flex flex-col items-center justify-center relative group cursor-pointer overflow-hidden border-white/10 hover:border-blue-500/40 transition-all duration-500">
+                <div class="text-center z-10">
+                    <h3 class="text-white text-lg tracking-[0.3em] font-light mb-1">PROJECT_01</h3>
+                    <p class="text-slate-500 text-[10px] uppercase tracking-widest">Data Analysis • Berkeley</p>
                 </div>
-                <div class="absolute bottom-6 flex gap-2">
-                    <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                    <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
-                    <div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
-                </div>
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+
+            <div class="flex gap-4 items-center">
+                <div class="w-8 h-[1px] bg-blue-500"></div>
+                <span class="text-[10px] text-slate-500 tracking-widest uppercase">01 / 04</span>
             </div>
         </div>
 
-        <div class="space-y-8">
-            <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold">Background</h2>
-            <div class="flex flex-col md:flex-row gap-8 items-start">
-                <div class="w-32 h-40 bg-white/10 border border-white/10 rounded-2xl shrink-0 grayscale hover:grayscale-0 transition duration-500"></div>
-                <div class="space-y-4">
-                    <p class="text-slate-300 leading-relaxed font-light">
-                        I am a third-year Data Science student at UC Berkeley focused on the intersection of clean code and immersive design. 
+        <div class="space-y-12 md:pl-10">
+            <div class="flex flex-col md:flex-row gap-10 items-start">
+                <div class="w-32 h-44 bg-white/5 border border-white/10 rounded-2xl shrink-0 backdrop-blur-sm relative overflow-hidden">
+                    <div class="absolute inset-0 bg-blue-900/10"></div>
+                </div>
+                
+                <div class="space-y-6 max-w-sm">
+                    <h2 class="text-[10px] uppercase tracking-[0.6em] text-blue-400 font-semibold">Background</h2>
+                    <p class="text-slate-300 font-light leading-relaxed text-sm md:text-base">
+                        I am a third-year **Data Science** student at **UC Berkeley**. My work focuses on bridging the gap between technical architecture and aesthetic, immersive design.
                     </p>
-                    <p class="text-slate-500 text-sm italic">Currently exploring the depths of full-stack architecture.</p>
+                    <p class="text-slate-500 text-xs italic leading-loose">
+                        Currently exploring full-stack development, photography, and the intersection of data and visual arts.
+                    </p>
+                    <a href="#" class="inline-block text-[10px] tracking-[0.3em] text-white border-b border-blue-500/50 pb-1 hover:text-blue-400 transition-colors uppercase">View Resume</a>
                 </div>
             </div>
         </div>
     </main>
 
     <script>
-        setTimeout(() => {
-            const overlay = document.getElementById('overlay');
-            const content = document.getElementById('content');
-            const name = document.getElementById('main-name');
+        window.addEventListener('load', () => {
+            const intro = document.getElementById('intro');
+            const main = document.getElementById('main-content');
             
-            overlay.classList.add('clear-view');
-            name.style.opacity = '0';
-            name.style.transform = 'translateY(-20px)';
-            
+            // Wait 3 seconds for the intro vibe
             setTimeout(() => {
-                content.classList.remove('opacity-0');
-                document.body.style.overflow = 'auto';
-            }, 1000);
-        }, 3000);
+                intro.classList.add('fade-out');
+                
+                // Fade in the main content shortly after
+                setTimeout(() => {
+                    main.classList.remove('opacity-0');
+                    document.body.style.overflowY = 'auto';
+                }, 1000);
+            }, 3000);
+        });
     </script>
 </body>
 </html>
