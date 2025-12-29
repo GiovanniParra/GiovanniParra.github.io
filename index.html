@@ -32,7 +32,9 @@
             font-weight: 700;
             color: white;
             text-align: center;
-            padding-left: 1.5em; /* Offsets the last letter's spacing to keep it perfectly centered */
+            padding-left: 1.5em; 
+            /* VERTICAL SPACING FOR NAME */
+            line-height: 1.6; 
         }
         @keyframes expandLine {
             from { width: 0; opacity: 0; }
@@ -70,7 +72,7 @@
 <body>
 
     <div id="intro" class="intro-screen fixed inset-0 z-50 bg-black/30">
-        <h1 class="name-style text-3xl md:text-5xl uppercase">GIOVANNI PARRA</h1>
+        <h1 class="name-style text-3xl md:text-5xl uppercase leading-relaxed">GIOVANNI<br>PARRA</h1>
         <div class="animated-line"></div>
     </div>
 
@@ -78,7 +80,7 @@
         <div class="space-y-10">
             <header>
                 <h2 class="text-[10px] uppercase tracking-[0.6em] text-blue-400 font-semibold mb-2">Portfolio</h2>
-                <p class="text-white text-3xl font-extralight tracking-tighter">Selected Projects</p>
+                <p class="text-white text-3xl font-extralight tracking-tighter leading-tight">Selected Projects</p>
             </header>
             <div class="glass-panel aspect-video rounded-3xl flex items-center justify-center group cursor-pointer border-white/10 hover:border-blue-500/40 transition-all duration-500">
                 <h3 class="text-white text-lg tracking-[0.3em] font-light">PROJECT_01</h3>
@@ -87,7 +89,7 @@
 
         <div class="space-y-12 md:pl-10">
             <h2 class="text-[10px] uppercase tracking-[0.6em] text-blue-400 font-semibold">Background</h2>
-            <p class="text-slate-300 font-light leading-relaxed text-sm md:text-base">
+            <p class="text-slate-300 font-light leading-loose text-sm md:text-base">
                 Third-year Data Science student at UC Berkeley. Bridging the gap between technical architecture and aesthetic design.
             </p>
             <a href="#" class="inline-block text-[10px] tracking-[0.3em] text-white border-b border-blue-500/50 pb-1 hover:text-blue-400 transition-colors uppercase">View Resume</a>
