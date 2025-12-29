@@ -7,20 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            background: #000814;
-            color: white;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-        }
-        .profile-image {
-            width: 100%;
-            height: 500px;
-            background: #001d3d;
-            border-radius: 2rem;
-            object-fit: cover;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
+        body { background: #000814; color: white; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; }
+        .profile-container { border: 1px solid rgba(255,255,255,0.1); border-radius: 2rem; overflow: hidden; height: 600px; background: #001d3d; }
     </style>
 </head>
 <body class="p-8 md:p-24">
@@ -29,38 +17,42 @@
     </nav>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
-        <div>
-            <div class="profile-image flex items-center justify-center text-slate-600">
-                [IMAGE PLACEHOLDER]
-            </div>
+        <div class="profile-container flex items-center justify-center text-slate-700 uppercase tracking-widest text-xs">
+            [Photo of Giovanni]
         </div>
 
         <div class="space-y-12">
             <section>
-                <h1 class="text-5xl font-bold tracking-tighter mb-6">The Story</h1>
-                <p class="text-slate-300 leading-loose font-light">
-                    My journey at **UC Berkeley** is fueled by a curiosity for how data interacts with human behavior. [cite: 74, 76] Beyond the classroom, I am dedicated to bridging indigenous culture with modern technology, a passion I explore as a Project Lead for **Centro Cultural Techantit**. [cite: 104, 107]
+                <h1 class="text-6xl font-bold tracking-tighter mb-8">The Story</h1>
+                <p class="text-slate-300 leading-loose font-light text-lg">
+                    I am a student at UC Berkeley exploring the intersection of Data Science and Technical Marketing. My background is rooted in the belief that technical architecture should be as beautiful as it is functional. 
                 </p>
-                <p class="text-slate-300 leading-loose font-light mt-6">
-                    I believe that the best way to learn is to build in public. Whether it’s developing AI-powered negotiation engines or geospatial audit platforms, my goal is to create technical solutions that are both functional and aesthetically refined. [cite: 81, 87, 119]
+                <p class="text-slate-300 leading-loose font-light text-lg mt-6">
+                    I am driven by personal projects. For me, building and publishing these tools isn't just about the final product; it's about the technical experience gained along the way. I focus on creating open-source solutions—from LLM orchestration to geospatial auditing—that help others while pushing the boundaries of my own knowledge.
                 </p>
             </section>
 
-            <section class="space-y-4">
-                <h2 class="text-xs uppercase tracking-[0.5em] text-blue-500 font-bold">Goals</h2>
-                <ul class="text-slate-400 space-y-2 text-sm">
-                    <li>• Automate complex regulatory compliance through geospatial data. [cite: 84]</li>
-                    <li>• Orchestrate high-performance LLM pipelines for everyday utility. [cite: 91]</li>
-                    <li>• Synthesize technical research into high-fidelity brand identities. [cite: 102]</li>
-                </ul>
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div>
+                    <h2 class="text-blue-500 text-[10px] uppercase tracking-[0.5em] font-bold mb-4">Core Goals</h2>
+                    <ul class="text-slate-400 text-sm space-y-3">
+                        <li>• Automate high-precision geospatial auditing</li>
+                        <li>• Deploy scalable AI negotiation frameworks</li>
+                        <li>• Bridge digital branding with data analytics</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-blue-500 text-[10px] uppercase tracking-[0.5em] font-bold mb-4">Education</h2>
+                    <p class="text-slate-400 text-sm">University of California, Berkeley</p>
+                    <p class="text-slate-500 text-[10px] mt-1 italic">Business & Industrial Analytics</p>
+                </div>
             </section>
 
             <section class="pt-10 border-t border-white/5">
-                <h2 class="text-xs uppercase tracking-[0.5em] text-blue-500 font-bold mb-6">Connect</h2>
-                <div class="flex flex-wrap gap-8">
-                    <a href="mailto:gioparra@berkeley.edu" class="text-white hover:text-blue-400 transition">Email</a>
-                    <a href="https://linkedin.com/in/gioparra" target="_blank" class="text-white hover:text-blue-400 transition">LinkedIn</a>
-                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white hover:text-blue-400 transition">GitHub</a>
+                <div class="flex gap-12">
+                    <a href="mailto:gioparra@berkeley.edu" class="text-white hover:text-blue-400 transition uppercase tracking-widest text-xs font-bold">Email</a>
+                    <a href="https://linkedin.com/in/gioparra" target="_blank" class="text-white hover:text-blue-400 transition uppercase tracking-widest text-xs font-bold">LinkedIn</a>
+                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white hover:text-blue-400 transition uppercase tracking-widest text-xs font-bold">GitHub</a>
                 </div>
             </section>
         </div>
