@@ -10,7 +10,7 @@
         body {
             background: radial-gradient(circle at center, #001d3d 0%, #000814 100%);
             margin: 0;
-            overflow: hidden; /* Starts hidden for intro */
+            overflow: hidden; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,7 +19,7 @@
         }
 
         /* ############################################################
-           # INTRO ANIMATION STYLES
+           # INTRO ANIMATION
            ############################################################ */
         .intro-screen {
             backdrop-filter: blur(60px);
@@ -32,14 +32,12 @@
         }
         .name-container { display: flex; flex-direction: column; gap: 6rem; align-items: center; justify-content: center; }
         .name-style { letter-spacing: 1.5em; font-weight: 700; color: white; text-align: center; padding-left: 1.5em; line-height: 1; }
-        
         @keyframes expandLine { from { width: 0; opacity: 0; } to { width: 60%; opacity: 0.8; } }
         .animated-line { height: 1px; background: #3b82f6; animation: expandLine 2.5s ease-out forwards; margin-top: 4rem; }
-        
         .fade-out { opacity: 0; pointer-events: none; transform: scale(1.05); filter: blur(20px); }
 
         /* ############################################################
-           # MAIN CONTENT STYLES
+           # PORTFOLIO STYLES
            ############################################################ */
         #main-content { position: absolute; top: 0; left: 0; width: 100%; }
         
@@ -53,40 +51,61 @@
             border-color: rgba(59, 130, 246, 0.5);
             transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4); /* Depth shadow */
         }
 
-        /* SLIDER LOGIC */
         .project-slider {
             display: flex;
             overflow-x: auto;
             gap: 2rem;
             padding-bottom: 2rem;
-            /* Hide scrollbar but keep functionality */
-            scrollbar-width: thin; 
+            scrollbar-width: none; 
             -ms-overflow-style: none;
-            /* Prevent wrapping */
             flex-wrap: nowrap; 
         }
         .project-slider::-webkit-scrollbar { display: none; }
         
-        /* FIXED CARD SIZE */
+        /* CARD REDESIGN: VISUAL FOCUS */
         .project-card { 
-            width: 350px; /* Fixed width to prevent "huge" cards */
-            flex-shrink: 0; /* Ensures they don't squash */
+            width: 380px; 
+            flex-shrink: 0; 
             display: flex;
             flex-direction: column;
+            height: 480px; /* Taller for visuals */
         }
 
         .project-image-placeholder {
-            width: 100%; height: 180px;
-            background: rgba(59, 130, 246, 0.05);
+            width: 100%; 
+            height: 240px; /* Takes up 50% of the card */
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.1) 0%, rgba(0,0,0,0) 100%);
             border-radius: 1rem;
             margin-bottom: 1.5rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: clip;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Mock UI Elements inside placeholder to look like "software" */
+        .mock-ui {
+            width: 80%; height: 60%;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .tech-badge {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #94a3b8;
         }
     </style>
 </head>
@@ -100,67 +119,122 @@
         <div class="animated-line"></div>
     </div>
 
-    <main id="main-content" class="opacity-0 transition-opacity duration-1000 min-h-screen p-8 md:p-20 space-y-20">
+    <main id="main-content" class="opacity-0 transition-opacity duration-1000 min-h-screen p-8 md:p-20 space-y-16">
         
-        <div class="flex flex-col md:flex-row justify-between items-start gap-12 mt-10">
+        <div class="flex flex-col md:flex-row justify-between items-end gap-12 mt-10 border-b border-white/5 pb-8">
             <div class="space-y-3">
                 <h2 class="text-white text-5xl font-bold tracking-tighter uppercase">Giovanni Parra</h2>
-                <p class="text-blue-500 tracking-[0.5em] uppercase text-[10px] font-bold">Technical Marketer / Data Scientist</p>
+                <div class="flex gap-3 items-center">
+                    <span class="text-blue-500 tracking-[0.2em] uppercase text-[10px] font-bold">Data Scientist</span>
+                    <span class="text-slate-700 text-[10px]">•</span>
+                    <span class="text-slate-400 tracking-[0.2em] uppercase text-[10px]">Technical Marketer</span>
+                </div>
             </div>
-            <div class="max-w-xl text-right">
-                <p class="text-slate-300 font-light leading-relaxed text-base mb-6">
-                    I am a student at UC Berkeley with a passion for building and publishing high-impact personal projects. I view every project as a hands-on learning experience, allowing me to gain specialized technical expertise while delivering open-source tools for others to use.
+            <div class="max-w-md text-right">
+                 <p class="text-slate-300 font-light text-sm">
+                    Building the bridge between <span class="text-white">raw data</span> and <span class="text-white">human experience</span>.
                 </p>
-                <a href="about.html" class="text-blue-400 text-xs tracking-widest uppercase font-bold border-b border-blue-400/30 pb-1 hover:text-white transition-colors">
-                    More about me →
-                </a>
+                <a href="about.html" class="mt-4 inline-block text-[10px] uppercase tracking-widest text-blue-400 hover:text-white transition">About Me →</a>
             </div>
         </div>
 
-        <section class="space-y-8">
-            <h3 class="text-white text-xs tracking-[0.5em] uppercase font-bold border-b border-white/5 pb-4">Selected Projects</h3>
-            
+        <section>
             <div class="project-slider">
                 
-                <div class="project-card glass-panel rounded-3xl p-8">
-                    <div class="project-image-placeholder">
+                <div class="project-card glass-panel rounded-3xl p-6 relative group">
+                    <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
+                        <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono">
+                            [ MAP VISUALIZATION ]
                         </div>
-                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Dec 2025</span>
-                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RESIDENCY RECORDS</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        An automated auditing platform for verifying IRS tax residency status. [cite_start]Built to handle 300,000+ geospatial data points per user using high-performance Python engines and Shapely for point-in-polygon verification[cite: 84, 85].
+                    </div>
+                    
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="text-white text-2xl font-bold tracking-tight">Residency Records</h4>
+                        <div class="flex gap-2">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Shapely</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
+                        [cite_start]Processing <strong>300,000+ geospatial points</strong> [cite: 84] to verify IRS tax residency with 100% logic accuracy. An automated auditing engine built for scale.
                     </p>
-                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Source</a>
+                    
+                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">
+                        View Engine <span class="text-lg">→</span>
+                    </a>
                 </div>
 
-                <div class="project-card glass-panel rounded-3xl p-8">
-                    <div class="project-image-placeholder"></div>
-                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Oct 2025</span>
-                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">FAIROFFER AI</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        An AI-driven negotiation assistant leveraging Gemini 2.5 Flash for strategic e-commerce communication. [cite_start]Orchestrated through an asynchronous FastAPI backend to transform unstructured chat data into real-time tactics[cite: 90, 91].
+                <div class="project-card glass-panel rounded-3xl p-6 relative group">
+                    <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
+                         <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono">
+                            [ AI CHAT INTERFACE ]
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="text-white text-2xl font-bold tracking-tight">FairOffer AI</h4>
+                        <div class="flex gap-2">
+                            <span class="tech-badge">Gemini 2.5</span>
+                            <span class="tech-badge">FastAPI</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
+                        Negotiation on autopilot. [cite_start]Orchestrating <strong>LLM inference pipelines</strong> [cite: 91] to turn unstructured chat data into real-time, strategic e-commerce tactics.
                     </p>
-                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">Live Demo</a>
+                    
+                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">
+                        See Demo <span class="text-lg">→</span>
+                    </a>
                 </div>
 
-                <div class="project-card glass-panel rounded-3xl p-8">
-                    <div class="project-image-placeholder"></div>
-                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Sept 2025</span>
-                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">RFM CLASSIFICATION</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        Advanced clustering model designed to segment 100,000+ customer records. [cite_start]Identifies high-value cohorts and behavioral patterns to optimize marketing ROI and resource allocation using Pandas and Matplotlib[cite: 96, 97].
+                <div class="project-card glass-panel rounded-3xl p-6 relative group">
+                    <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
+                         <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono">
+                            [ DATA CLUSTERS ]
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="text-white text-2xl font-bold tracking-tight">RFM Analytics</h4>
+                        <div class="flex gap-2">
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">ML</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
+                        [cite_start]Segmenting <strong>100,000+ customer records</strong> [cite: 96] to predict churn and maximize lifetime value. A direct application of clustering algorithms to ROI.
                     </p>
-                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Repo</a>
+                    
+                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">
+                        View Analysis <span class="text-lg">→</span>
+                    </a>
                 </div>
 
-                <div class="project-card glass-panel rounded-3xl p-8">
-                    <div class="project-image-placeholder"></div>
-                    <span class="text-blue-500 font-bold text-[10px] uppercase tracking-widest mb-2">Jan 2025</span>
-                    <h4 class="text-white text-xl font-bold mb-3 tracking-tight">INNOVATIVE DESIGN</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-8 flex-grow">
-                        Led end-to-end visual design and prototyping for the Sustainable Internet Lab. [cite_start]Synthesized complex technical research into high-fidelity marketing assets using Figma and Adobe Creative Suite[cite: 101, 102].
+                 <div class="project-card glass-panel rounded-3xl p-6 relative group">
+                    <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
+                         <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono">
+                            [ FIGMA PROTOTYPES ]
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="text-white text-2xl font-bold tracking-tight">Innovative Design</h4>
+                        <div class="flex gap-2">
+                            <span class="tech-badge">Figma</span>
+                            <span class="tech-badge">Adobe</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
+                        [cite_start]Translating complex technical research into <strong>high-fidelity visual assets</strong> [cite: 102] for the Sustainable Internet Lab. Where design meets data.
                     </p>
-                    <a href="https://github.com/giovanniparra" target="_blank" class="text-white text-[10px] uppercase tracking-widest border-b border-blue-500/50 pb-1 self-start hover:text-blue-400 transition">View Prototypes</a>
+                    
+                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">
+                        View Case Study <span class="text-lg">→</span>
+                    </a>
                 </div>
 
             </div>
@@ -168,7 +242,11 @@
 
         <footer class="flex justify-between items-center pt-12 border-t border-white/5 text-slate-600 text-[9px] uppercase tracking-[0.4em] pb-10">
             <span>Berkeley, CA</span>
-            <span>© 2025 Giovanni Parra</span>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-blue-400 transition">LINKEDIN</a>
+                <a href="#" class="hover:text-blue-400 transition">GITHUB</a>
+                <a href="#" class="hover:text-blue-400 transition">EMAIL</a>
+            </div>
         </footer>
     </main>
 
@@ -176,13 +254,11 @@
         window.addEventListener('load', () => {
             const intro = document.getElementById('intro');
             const main = document.getElementById('main-content');
-            
-            // Wait 4 seconds for line animation
             setTimeout(() => {
                 intro.classList.add('fade-out');
                 setTimeout(() => {
                     main.classList.remove('opacity-0');
-                    document.body.style.overflowY = 'auto'; // Enable scroll after intro
+                    document.body.style.overflowY = 'auto';
                 }, 800);
             }, 4000);
         });
