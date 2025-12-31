@@ -54,41 +54,35 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        /* CUSTOM SCROLLBAR STYLING */
         .project-slider {
             display: flex;
             overflow-x: auto;
             gap: 2rem;
-            padding-bottom: 2rem;
+            padding-bottom: 1.5rem;
             flex-wrap: nowrap; 
-            /* Added padding to separate bar from cards */
-            padding-bottom: 1.5rem; 
         }
 
-        /* The Track (Background) */
         .project-slider::-webkit-scrollbar {
-            height: 10px; /* Semi-thick bar */
+            height: 10px;
         }
 
         .project-slider::-webkit-scrollbar-track {
             background: rgba(255, 255, 255, 0.02);
             border-radius: 10px;
-            margin: 0 4rem; /* Adds some spacing from the screen edges */
+            margin: 0 4rem;
         }
 
-        /* The Thumb (The moving part) */
         .project-slider::-webkit-scrollbar-thumb {
-            background: #3b82f6; /* Your Theme Blue */
+            background: #3b82f6;
             border-radius: 10px;
             cursor: pointer;
             transition: background 0.3s;
         }
 
         .project-slider::-webkit-scrollbar-thumb:hover {
-            background: #60a5fa; /* Lighter blue on hover */
+            background: #60a5fa;
         }
         
-        /* CARD REDESIGN */
         .project-card { 
             width: 380px; 
             flex-shrink: 0; 
@@ -165,8 +159,8 @@
                 
                 <div class="project-card glass-panel rounded-3xl p-6 relative group">
                     <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
-                        <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono">
-                            [ MAP VISUALIZATION ]
+                        <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono text-center px-4">
+                            [ GEOSPATIAL AUDIT DASHBOARD ]
                         </div>
                     </div>
                     
@@ -174,23 +168,23 @@
                         <h4 class="text-white text-2xl font-bold tracking-tight">Residency Records</h4>
                         <div class="flex gap-2">
                             <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Shapely</span>
+                            <span class="tech-badge">Streamlit</span>
                         </div>
                     </div>
                     
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
-                        [cite_start]Processing <strong>300,000+ geospatial points</strong> [cite: 84] to verify IRS tax residency with 100% logic accuracy. An automated auditing engine built for scale.
+                        An automated auditing platform that transforms raw GPS logs into a verified residency report. It runs geospatial checks against high-resolution border shapefiles to provide a precise, visual timeline of global travel for tax compliance.
                     </p>
                     
-                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">
-                        View Engine <span class="text-lg">→</span>
+                    <a href="https://residencyrecords.streamlit.app" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">
+                        Launch App <span class="text-lg">→</span>
                     </a>
                 </div>
 
                 <div class="project-card glass-panel rounded-3xl p-6 relative group">
                     <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
-                         <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono">
-                            [ AI CHAT INTERFACE ]
+                         <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono text-center px-4">
+                            [ AI NEGOTIATION ENGINE ]
                         </div>
                     </div>
                     
@@ -203,18 +197,18 @@
                     </div>
                     
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
-                        Negotiation on autopilot. [cite_start]Orchestrating <strong>LLM inference pipelines</strong> [cite: 91] to turn unstructured chat data into real-time, strategic e-commerce tactics.
+                        A real-time negotiation assistant for e-commerce. It uses custom prompt engineering to orchestrate strategic personas, transforming unstructured marketplace chats into data-driven tactics that optimize transaction outcomes.
                     </p>
                     
-                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">
-                        See Demo <span class="text-lg">→</span>
+                    <a href="https://chrome.google.com/webstore" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">
+                        Add to Chrome <span class="text-lg">→</span>
                     </a>
                 </div>
 
                 <div class="project-card glass-panel rounded-3xl p-6 relative group">
                     <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
-                         <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono">
-                            [ DATA CLUSTERS ]
+                         <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono text-center px-4">
+                            [ GROWTH ANALYTICS HUB ]
                         </div>
                     </div>
                     
@@ -227,17 +221,17 @@
                     </div>
                     
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
-                        [cite_start]Segmenting <strong>100,000+ customer records</strong> [cite: 96] to predict churn and maximize lifetime value. A direct application of clustering algorithms to ROI.
+                        A behavioral segmentation engine that classifies 100,000+ customer records into high-value cohorts. It maps purchasing frequency and recency to predict churn, providing a direct pipeline for maximizing customer lifetime value.
                     </p>
                     
-                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">
-                        View Analysis <span class="text-lg">→</span>
+                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">
+                        View Analytics <span class="text-lg">→</span>
                     </a>
                 </div>
 
-                 <div class="project-card glass-panel rounded-3xl p-6 relative group">
+                <div class="project-card glass-panel rounded-3xl p-6 relative group">
                     <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
-                         <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono">
+                         <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono text-center px-4">
                             [ FIGMA PROTOTYPES ]
                         </div>
                     </div>
@@ -251,10 +245,10 @@
                     </div>
                     
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
-                        [cite_start]Translating complex technical research into <strong>high-fidelity visual assets</strong> [cite: 102] for the Sustainable Internet Lab. Where design meets data.
+                        End-to-end visual prototyping for the Sustainable Internet Lab. This project bridge the gap between complex academic research and public awareness by synthesizing technical findings into high-fidelity digital marketing assets.
                     </p>
                     
-                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition">
+                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">
                         View Case Study <span class="text-lg">→</span>
                     </a>
                 </div>
@@ -265,9 +259,9 @@
         <footer class="flex justify-between items-center pt-12 border-t border-white/5 text-slate-600 text-[9px] uppercase tracking-[0.4em] pb-10">
             <span>Berkeley, CA</span>
             <div class="flex gap-6">
-                <a href="#" class="hover:text-blue-400 transition">LINKEDIN</a>
-                <a href="#" class="hover:text-blue-400 transition">GITHUB</a>
-                <a href="#" class="hover:text-blue-400 transition">EMAIL</a>
+                <a href="https://linkedin.com/in/gioparra" target="_blank" class="hover:text-blue-400 transition">LINKEDIN</a>
+                <a href="https://github.com/giovanniparra" target="_blank" class="hover:text-blue-400 transition">GITHUB</a>
+                <a href="mailto:gioparra@berkeley.edu" class="hover:text-blue-400 transition">EMAIL</a>
             </div>
         </footer>
     </main>
