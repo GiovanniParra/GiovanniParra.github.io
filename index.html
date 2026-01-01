@@ -1,11 +1,151 @@
-<section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giovanni Parra | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle at center, #001d3d 0%, #000814 100%);
+            margin: 0;
+            overflow: hidden; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .intro-screen {
+            backdrop-filter: blur(60px);
+            transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .name-container { display: flex; flex-direction: column; gap: 6rem; align-items: center; justify-content: center; }
+        .name-style { letter-spacing: 1.5em; font-weight: 700; color: white; text-align: center; padding-left: 1.5em; line-height: 1; }
+        @keyframes expandLine { from { width: 0; opacity: 0; } to { width: 60%; opacity: 0.8; } }
+        .animated-line { height: 1px; background: #3b82f6; animation: expandLine 2.5s ease-out forwards; margin-top: 4rem; }
+        .fade-out { opacity: 0; pointer-events: none; transform: scale(1.05); filter: blur(20px); }
+
+        #main-content { position: absolute; top: 0; left: 0; width: 100%; }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+        .glass-panel:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .project-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding-bottom: 1.5rem;
+            flex-wrap: nowrap; 
+        }
+
+        .project-slider::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .project-slider::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            margin: 0 4rem;
+        }
+
+        .project-slider::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .project-slider::-webkit-scrollbar-thumb:hover {
+            background: #60a5fa;
+        }
+        
+        .project-card { 
+            width: 380px; 
+            flex-shrink: 0; 
+            display: flex;
+            flex-direction: column;
+            height: 480px;
+        }
+
+        .project-image-placeholder {
+            width: 100%; 
+            height: 240px;
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.1) 0%, rgba(0,0,0,0) 100%);
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tech-badge {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="intro" class="intro-screen fixed inset-0 z-50 bg-black/30">
+        <div class="name-container">
+            <h1 class="name-style text-3xl md:text-5xl uppercase">GIOVANNI</h1>
+            <h1 class="name-style text-3xl md:text-5xl uppercase">PARRA</h1>
+        </div>
+        <div class="animated-line"></div>
+    </div>
+
+    <main id="main-content" class="opacity-0 transition-opacity duration-1000 min-h-screen p-8 md:p-20 space-y-16">
+        
+        <div class="flex flex-col md:flex-row justify-between items-end gap-12 mt-10 border-b border-white/5 pb-8">
+            <div class="space-y-3">
+                <h2 class="text-white text-5xl font-bold tracking-tighter uppercase">Giovanni Parra</h2>
+                <div class="flex gap-3 items-center">
+                    <span class="text-blue-500 tracking-[0.2em] uppercase text-[10px] font-bold">Data Scientist</span>
+                    <span class="text-slate-700 text-[10px]">•</span>
+                    <span class="text-slate-400 tracking-[0.2em] uppercase text-[10px]">Technical Marketer</span>
+                </div>
+            </div>
+            <div class="max-w-md text-right">
+                 <p class="text-slate-300 font-light text-sm">
+                    Building the bridge between <span class="text-white">raw data</span> and <span class="text-white">human experience</span>.
+                </p>
+                <a href="about.html" class="mt-4 inline-block text-[10px] uppercase tracking-widest text-blue-400 hover:text-white transition">About Me →</a>
+            </div>
+        </div>
+
+        <section>
             <div class="project-slider">
                 
                 <div class="project-card glass-panel rounded-3xl p-6 relative group">
                     <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
-                        <img src="residency-thumb.png" 
-                             alt="Residency Records Thumbnail" 
-                             class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500">
+                        <img src="residency-thumb.png" alt="Residency Records" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500">
                     </div>
                     <div class="flex justify-between items-start mb-3">
                         <h4 class="text-white text-2xl font-bold tracking-tight">Residency Records</h4>
@@ -15,18 +155,14 @@
                         </div>
                     </div>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
-                        An automated auditing platform that transforms raw GPS logs into a verified residency report. It runs geospatial checks against high-resolution border shapefiles to provide a precise, visual timeline of global travel for tax compliance.
+                        An automated auditing platform that transforms raw GPS logs into a verified residency report. It runs geospatial checks against high-resolution border shapefiles to provide a precise travel timeline for tax compliance.
                     </p>
-                    <a href="https://residencyrecords.streamlit.app" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">
-                        Launch App <span class="text-lg">→</span>
-                    </a>
+                    <a href="https://residencyrecords.streamlit.app" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">Launch App →</a>
                 </div>
 
                 <div class="project-card glass-panel rounded-3xl p-6 relative group">
                     <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
-                        <img src="fairoffer-thumb.jpg" 
-                             alt="FairOffer AI Thumbnail" 
-                             class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500">
+                        <img src="fairoffer-thumb.jpg" alt="FairOffer AI" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500">
                     </div>
                     <div class="flex justify-between items-start mb-3">
                         <h4 class="text-white text-2xl font-bold tracking-tight">FairOffer AI</h4>
@@ -36,18 +172,14 @@
                         </div>
                     </div>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
-                        A real-time negotiation assistant for e-commerce. It uses custom prompt engineering to orchestrate strategic personas, transforming unstructured marketplace chats into data-driven tactics that optimize transaction outcomes.
+                        A real-time negotiation assistant for e-commerce. It uses custom prompt engineering to orchestrate strategic personas, transforming unstructured chats into data-driven tactics that optimize deals.
                     </p>
-                    <a href="https://chromewebstore.google.com/detail/fairoffer/jpmanaolpblbdibemfojbnhelnapklkd" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">
-                        Add to Chrome <span class="text-lg">→</span>
-                    </a>
+                    <a href="https://chromewebstore.google.com/detail/fairoffer/jpmanaolpblbdibemfojbnhelnapklkd" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">Add to Chrome →</a>
                 </div>
 
                 <div class="project-card glass-panel rounded-3xl p-6 relative group">
                     <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
-                        <img src="RFM.png" 
-                             alt="RFM Analytics Visualization" 
-                             class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500">
+                        <img src="RFM.png" alt="RFM Analytics" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500">
                     </div>
                     <div class="flex justify-between items-start mb-3">
                         <h4 class="text-white text-2xl font-bold tracking-tight">RFM Analytics</h4>
@@ -57,16 +189,14 @@
                         </div>
                     </div>
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
-                        A behavioral segmentation engine that identifies high-value customer cohorts by mapping purchasing frequency, recency, and spend. Isolated profitable audience segments to optimize marketing ROI using break-even modeling.
+                        A behavioral segmentation engine that identifies high-value customer cohorts by mapping frequency, recency, and spend. Isolated profitable audience segments to optimize marketing ROI using break-even modeling.
                     </p>
-                    <a href="Tuscan RFM Analisis.pdf" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">
-                        View Full Analysis <span class="text-lg">→</span>
-                    </a>
+                    <a href="Tuscan RFM Analisis.pdf" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">View Full Analysis →</a>
                 </div>
 
                 <div class="project-card glass-panel rounded-3xl p-6 relative group">
                     <div class="project-image-placeholder group-hover:border-blue-500/30 transition-colors">
-                         <div class="mock-ui flex items-center justify-center text-[10px] text-blue-400 font-mono text-center px-4">
+                         <div class="flex items-center justify-center text-[10px] text-blue-400 font-mono text-center px-4">
                             [ FIGMA PROTOTYPES ]
                         </div>
                     </div>
@@ -80,10 +210,34 @@
                     <p class="text-slate-400 text-xs leading-relaxed font-light mb-6 flex-grow">
                         End-to-end visual prototyping for the Sustainable Internet Lab. This project bridged the gap between complex academic research and public awareness by synthesizing technical findings into high-fidelity digital assets.
                     </p>
-                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">
-                        View Case Study <span class="text-lg">→</span>
-                    </a>
+                    <a href="https://github.com/giovanniparra" target="_blank" class="flex items-center gap-2 text-white text-[10px] uppercase tracking-widest hover:text-blue-400 transition font-bold">View Case Study →</a>
                 </div>
 
             </div>
         </section>
+
+        <footer class="flex justify-between items-center pt-12 border-t border-white/5 text-slate-600 text-[9px] uppercase tracking-[0.4em] pb-10">
+            <span>Berkeley, CA</span>
+            <div class="flex gap-6">
+                <a href="https://linkedin.com/in/gioparra" target="_blank" class="hover:text-blue-400 transition">LINKEDIN</a>
+                <a href="https://github.com/giovanniparra" target="_blank" class="hover:text-blue-400 transition">GITHUB</a>
+                <a href="mailto:gioparra@berkeley.edu" class="hover:text-blue-400 transition">EMAIL</a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        window.addEventListener('load', () => {
+            const intro = document.getElementById('intro');
+            const main = document.getElementById('main-content');
+            setTimeout(() => {
+                intro.classList.add('fade-out');
+                setTimeout(() => {
+                    main.classList.remove('opacity-0');
+                    document.body.style.overflowY = 'auto';
+                }, 800);
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
