@@ -1,85 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Giovanni Parra</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            background: radial-gradient(circle at center, #001d3d 0%, #000814 100%);
-            margin: 0;
-            min-height: 100vh;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: white;
-            display: flex;
-            justify-content: center;
-        }
-
-        .content-wrapper { max-width: 1100px; width: 100%; }
-
-        .profile-container {
-            height: 550px; 
-            width: 100%;
-            border-radius: 2rem;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            position: relative;
-        }
-        
-        .nav-link {
-            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em;
-            color: #60a5fa; font-weight: 700; text-decoration: none; transition: color 0.3s ease;
-        }
-        .nav-link:hover { color: white; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Giovanni Parra</title>
+  <meta name="description" content="About Giovanni Parra — Data Scientist and Technical Marketer based in Berkeley, CA.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232f5fe0%22/><text x=%2250%22 y=%2266%22 font-size=%2260%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22>G</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="theme.js"></script>
 </head>
-<body class="p-8 md:p-24 my-auto">
-    
-    <div class="content-wrapper">
-        <nav class="mb-12">
-            <a href="index.html" class="nav-link">← Back to Projects</a>
-        </nav>
+<body>
+  <div class="wrap">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-            
-            <div class="profile-container">
-                <img src="me.jpeg" alt="Giovanni Parra" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500">
-                <div class="absolute inset-0 bg-blue-900/10 pointer-events-none"></div>
-            </div>
-
-            <div class="space-y-10">
-                
-                <section>
-                    <h1 class="text-5xl font-bold tracking-tighter mb-8 leading-tight">About Me</h1>
-                    
-                    <p class="text-slate-300 leading-loose font-light text-base mb-6">
-                        I create things. Sometimes that means writing Python scripts to audit tax residency, and other times it means designing redstone contraptions in <strong>Minecraft</strong>. My philosophy is simple: build tools that I actually need, make them look good, and make them work for everyday people.
-                    </p>
-
-                    <p class="text-slate-300 leading-loose font-light text-base mb-6">
-                        My path wasn't linear. I was born in <strong>El Paso, TX</strong>, but spent 14 years growing up in <strong>Mexico</strong> before moving to Fresno to live with my uncle. Now at <strong>Berkeley</strong>, I try to balance the screen time with real life. When I'm not coding, you can usually find me at the gym, woodworking, or exploring nature. I love the offline creative process too, like practicing guitar, editing videos in Premiere Pro, or just pencil sketching.
-                    </p>
-
-                    <p class="text-slate-300 leading-loose font-light text-base">
-                        I am really just doing whatever I can to enjoy life and figure out my purpose in this world. I build these small apps and projects to help others, but I'm also doing it to help myself figure out what I want to do next. I'm just creating stuff along the way, but the real project right now is building me.
-                    </p>
-                </section>
-
-                <section class="pt-6 border-t border-white/5">
-                    <div class="flex gap-8">
-                        <a href="mailto:gioparra@berkeley.edu" class="nav-link text-white">Email</a>
-                        <a href="https://linkedin.com/in/gioparra" target="_blank" class="nav-link text-white">LinkedIn</a>
-                        <a href="https://github.com/giovanniparra" target="_blank" class="nav-link text-white">GitHub</a>
-                    </div>
-                </section>
-            </div>
-
-        </div>
+    <div class="topbar">
+      <a href="index.html" class="brand">Giovanni Parra</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">← Projects</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" type="button">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></svg>
+        </button>
+      </div>
     </div>
 
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <img src="images/me.jpeg" alt="Portrait of Giovanni Parra">
+      </div>
+
+      <div class="about-content reveal">
+        <h1>About Me</h1>
+
+        <p>I create things. Sometimes that means writing Python scripts to audit tax residency, and other times it means designing redstone contraptions in <strong>Minecraft</strong>. My philosophy is simple: build tools that I actually need, make them look good, and make them work for everyday people.</p>
+
+        <p>My path wasn't linear. I was born in <strong>El Paso, TX</strong>, but spent 14 years growing up in <strong>Mexico</strong> before moving to Fresno to live with my uncle. Now at <strong>Berkeley</strong>, I try to balance the screen time with real life. When I'm not coding, you can usually find me at the gym, woodworking, or exploring nature. I love the offline creative process too, like practicing guitar, editing videos in Premiere Pro, or just pencil sketching.</p>
+
+        <p>I am really just doing whatever I can to enjoy life and figure out my purpose in this world. I build these small apps and projects to help others, but I'm also doing it to help myself figure out what I want to do next. I'm just creating stuff along the way, but the real project right now is building me.</p>
+
+        <div class="about-links">
+          <a href="mailto:gioparra@berkeley.edu">Email</a>
+          <a href="https://linkedin.com/in/gioparra" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/giovanniparra" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </body>
 </html>
-
-
