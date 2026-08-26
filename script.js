@@ -158,6 +158,16 @@ var PARRA_I18N = (function () {
   // switching back to English restores it exactly, including the <em>/<strong> tags.
   var englishCache = {};
 
+  // A handful of strings (the contact-form status messages) only ever exist
+  // as JS-set text — there's no matching English element in the markup for
+  // captureEnglish() to read them from — so their English text lives here.
+  var englishDefaults = {
+    'form.status.notConnected': "This form isn't connected yet — for now, email me directly at contact.giovanniparra@gmail.com.",
+    'form.status.sending': 'Sending…',
+    'form.status.ok': "Thanks — I'll reply within 1 business day.",
+    'form.status.err': 'Something went wrong. Please email contact.giovanniparra@gmail.com directly.'
+  };
+
   function captureEnglish() {
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       englishCache[el.getAttribute('data-i18n')] = el.textContent;
@@ -171,10 +181,10 @@ var PARRA_I18N = (function () {
   }
 
   function t(key, lang) {
-    if (lang === 'en') return englishCache[key];
+    if (lang === 'en') return englishCache[key] !== undefined ? englishCache[key] : englishDefaults[key];
     return (translations[lang] && translations[lang][key] !== undefined)
       ? translations[lang][key]
-      : englishCache[key];
+      : (englishCache[key] !== undefined ? englishCache[key] : englishDefaults[key]);
   }
 
   function apply(lang) {
