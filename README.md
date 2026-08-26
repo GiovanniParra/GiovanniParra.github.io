@@ -1,17 +1,47 @@
 # Parra Marketing Solutions — Agency Site
 
 A one-page, custom-coded site for the business (not a client site — this
-doesn't touch Wix). Loud, confident, dark-mode agency style — big italic-accent
+doesn't touch Wix). Loud, confident agency style — big italic-accent
 headline, a scrolling marquee band, a personal "studio note" manifesto, then
-why-us, how-it-works, pricing, and a contact/quote form.
+why-us, how-it-works, pricing, and a contact/quote form. Blue-and-green
+palette, full light/dark mode, and English/Spanish switching.
 
 ## Files
 
 ```
 index.html   Everything — hero, why-us, process, pricing, contact, footer
 styles.css   All styling. Color tokens are at the very top of the file.
-script.js    Mobile nav, scroll-reveal animation, contact form handling
+theme.js     Light/dark mode. Loaded in <head> so there's no flash of the
+             wrong theme on page load.
+script.js    Mobile nav, scroll-reveal animation, English/Spanish
+             translations, contact form handling
 ```
+
+## Color palette
+
+Blue and green on white (light mode) or dark navy, not black (dark mode) —
+`--accent` (blue) and `--accent-2` (green) at the top of `styles.css`.
+`--accent-strong` and `--accent-soft` derive from `--accent` automatically
+via `color-mix()`, so the two base colors are the only thing you'd ever
+need to touch to retheme the whole site.
+
+## Light / dark mode
+
+The toggle next to the language switcher follows the visitor's system
+preference by default and remembers an explicit choice in `localStorage`.
+`theme.js` is loaded synchronously in `<head>` specifically so the correct
+theme applies before the page paints — no flash of light mode before it
+switches to dark.
+
+## English / Spanish
+
+The "EN / ES" switcher in the nav swaps every piece of visible text,
+including form labels and placeholders, via `data-i18n` attributes in
+`index.html` and a translations table in `script.js`. It remembers the
+visitor's choice the same way the theme does. To add or edit Spanish
+copy, everything lives in the `translations.es` object near the top of
+`script.js` — the English text is the markup's default content, so it
+never needs a translations entry of its own.
 
 ## Before you deploy: connect the contact form
 
@@ -39,8 +69,8 @@ violate your own style guide's rule against fabricating work. Once you
 land your first client (or build the demo sites your master context doc
 recommends), the natural place to add a "Selected Work" section is right
 after the hero, before "Why Parra." Just say the word and I'll build that
-section in the same visual language once you have real or demo sites to
-show.
+section — and its Spanish translation — in the same visual language once
+you have real or demo sites to show.
 
 ## Deploy to Vercel
 
@@ -49,38 +79,10 @@ its own Vercel project (don't push this into the same repo as
 `giovanniparra.github.io`):
 
 1. Create a new GitHub repo (e.g. `parra-marketing-solutions`) and push
-   these three files to it.
+   these files to it.
 2. In Vercel, "Add New Project" → import that repo. No build command or
    output directory needed — it's static HTML.
 3. Once deployed, go to Settings → Domains and attach whatever domain
    you want this to live on (a subdomain like
    `parramarketingsolutions.com` or similar, separate from your personal
    site's domain).
-
-## Trying out color schemes (delete before real launch)
-
-There's a small floating panel in the bottom-right corner of the live site
-— "Color Schemes" — for deciding on an accent color before you design a
-logo. It's not a random color grid: each option is a real color-theory
-pairing (Complementary, Analogous, Triadic, Split-Complementary,
-Monochromatic), computed from precise hue rotations so every pair is
-actually validated to work together, not just picked because it looked
-okay. Clicking one re-themes the entire page live — headline accent,
-buttons, the marquee band, everything — so you can compare them in full
-context instead of squinting at swatches. Hover each option to see what
-its rule means; the two hex codes shown are what you'd hand to whoever
-designs your logo.
-
-Once you've picked one, remove it:
-1. In `index.html`, delete the whole `<div class="palette-picker" id="palette-picker">...</div>` block near the end of the file.
-2. In `script.js`, delete the "Palette picker" block (clearly commented).
-3. In `styles.css`, set `--accent` and `--accent-2` at the top of `:root` to your chosen hex codes (everything else derives from those two automatically).
-
-## Tuning the look
-
-Every color is a CSS variable at the top of `styles.css` under `:root`.
-The current palette is near-black backgrounds with one bright accent
-(`--accent`) plus a paired secondary (`--accent-2`) used for the hero glow
-and marquee accents — `--accent-strong` and `--accent-soft` derive from
-`--accent` automatically via `color-mix()`, so changing one value re-themes
-everything consistently.
